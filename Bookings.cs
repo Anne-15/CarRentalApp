@@ -12,9 +12,11 @@ namespace CarRentalApp
 {
     public partial class Bookings : Form
     {
+        private readonly RentalCarEntities rentalCarEntities;
         public Bookings()
         {
             InitializeComponent();
+            rentalCarEntities = new RentalCarEntities();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace CarRentalApp
                 string firstName = customerFirstName.Text;
                 string surName = customerSurname.Text;
                 string address = customerAddress.Text;
-                string age = customerAge.ToString();
+                var age = customerAge.ToString();
                 string drivingLicence = validLicence.ToString();
                 string numberDays = numberOfDays.ToString();
                 var typeCar = carType.SelectedItem.ToString();
@@ -87,6 +89,20 @@ namespace CarRentalApp
 
                 if (isValid == true)
                 {
+                    var rentalRecord = new CarRentalTABLE();
+                    rentalRecord.CustomerFirstName = firstName;
+                    rentalRecord.CustomerSurname = surName;
+                    rentalRecord.CustomerAddress = address;
+                    rentalRecord.CustomerAge = (int)age;
+                    rentalRecord.DrivingLicence = drivingLicence;
+                    rentalRecord.NumberOfDays = (int)numberDays;
+                    rentalRecord.CarTypeId = (int)carType.SelectedValue;
+                    rentalRecord.FuelTypeId = (int)fuelType.SelectedValue;
+                    rentalRecord.Service = (int)extraZ.SelectedValue;
+                    
+                    rentalCarEntities.CarRentalTABLEs.Add(rentalRecord);
+                    rentalCarEntities.SaveChanges();
+
                     MessageBox.Show($"Customer First Name: {firstName}\n\r" +
                     $"Customer Surname: {surName}\n\r" +
                     $"Customer Address: {address} \n\r" +
@@ -108,6 +124,27 @@ namespace CarRentalApp
                 //throw;
             }
             
+        }
+
+        private void Bookings_Load(object sender, EventArgs e)
+        {
+            var cars = rentalCarEntities.TypesOfCars.ToList();
+            carType.DisplayMember = "CarType";
+            carType.DisplayMember = "Prices";
+            carType.ValueMember = "id";
+            carType.DataSource = cars;
+
+            var fuel = rentalCarEntities.FuelTypes.ToList();
+            fuelType.DisplayMember = "FuelType";
+            fuelType.DisplayMember = "Prices";
+            fuelType.ValueMember = "id";
+            fuelType.DataSource = fuel;
+
+            var service = rentalCarEntities.Services.ToList();
+            extraZ.DisplayMember = "Services";
+            extraZ.DisplayMember = "Prices";
+            extraZ.ValueMember = "id";
+            extraZ.DataSource = service;
         }
     }
 }

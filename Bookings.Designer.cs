@@ -257,7 +257,7 @@ namespace CarRentalApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 552);
+            this.ClientSize = new System.Drawing.Size(807, 552);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -280,6 +280,7 @@ namespace CarRentalApp
             this.Controls.Add(this.label1);
             this.Name = "Bookings";
             this.Text = "Bookings";
+            this.Load += new System.EventHandler(this.Bookings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

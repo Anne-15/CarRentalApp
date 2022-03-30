@@ -35,6 +35,7 @@ namespace CarRentalApp
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.LogInButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // carRentalSystem
@@ -92,11 +93,22 @@ namespace CarRentalApp
             this.passwordLabel.TabIndex = 5;
             this.passwordLabel.Text = "Password";
             // 
-            // Form1
+            // LogInButton
+            // 
+            this.LogInButton.Location = new System.Drawing.Point(266, 346);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(109, 31);
+            this.LogInButton.TabIndex = 6;
+            this.LogInButton.Text = "Submit";
+            this.LogInButton.UseVisualStyleBackColor = true;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 433);
+            this.ClientSize = new System.Drawing.Size(721, 503);
+            this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.passwordInput);
@@ -104,8 +116,9 @@ namespace CarRentalApp
             this.Controls.Add(this.stuffLogIn);
             this.Controls.Add(this.carRentalSystem);
             this.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Log In";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +132,7 @@ namespace CarRentalApp
         private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button LogInButton;
     }
 }
 
