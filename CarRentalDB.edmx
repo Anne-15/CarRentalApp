@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RentalCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RentalCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CarRentalTABLE">
           <Key>
             <PropertyRef Name="id" />
@@ -26,6 +26,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FuelType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prices" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -33,6 +34,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Services" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prices" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="TypesOfCar">
           <Key>
@@ -40,6 +42,15 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CarType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prices" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_CarRentalTABLE_FuelTypes">
           <End Role="FuelTypes" Type="Self.FuelTypes" Multiplicity="0..1" />
@@ -82,6 +93,7 @@
           <EntitySet Name="FuelTypes" EntityType="Self.FuelTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypesOfCar" EntityType="Self.TypesOfCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CarRentalTABLE_FuelTypes" Association="Self.FK_CarRentalTABLE_FuelTypes">
             <End Role="FuelTypes" EntitySet="FuelTypes" />
             <End Role="CarRentalTABLE" EntitySet="CarRentalTABLE" />
@@ -95,8 +107,7 @@
             <End Role="CarRentalTABLE" EntitySet="CarRentalTABLE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RentalCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -125,6 +136,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FuelType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CarRentalTABLEs" Relationship="Self.FK_CarRentalTABLE_FuelTypes" FromRole="FuelTypes" ToRole="CarRentalTABLE" />
+          <Property Name="Prices" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -133,6 +145,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Services" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CarRentalTABLEs" Relationship="Self.FK_CarRentalTABLE_Services" FromRole="Services" ToRole="CarRentalTABLE" />
+          <Property Name="Prices" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="TypesOfCar">
           <Key>
@@ -141,6 +154,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CarRentalTABLEs" Relationship="Self.FK_CarRentalTABLE_TypesOfCar" FromRole="TypesOfCar" ToRole="CarRentalTABLE" />
+          <Property Name="Prices" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_CarRentalTABLE_FuelTypes">
           <End Role="FuelTypes" Type="Self.FuelType" Multiplicity="0..1" />
@@ -195,7 +209,16 @@
             <End Role="TypesOfCar" EntitySet="TypesOfCars" />
             <End Role="CarRentalTABLE" EntitySet="CarRentalTABLEs" />
           </AssociationSet>
+          <EntitySet Name="users" EntityType="RentalCarModel.user" />
         </EntityContainer>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -221,6 +244,7 @@
           <EntitySetMapping Name="FuelTypes">
             <EntityTypeMapping TypeName="RentalCarModel.FuelType">
               <MappingFragment StoreEntitySet="FuelTypes">
+                <ScalarProperty Name="Prices" ColumnName="Prices" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="FuelType1" ColumnName="FuelType" />
               </MappingFragment>
@@ -229,6 +253,7 @@
           <EntitySetMapping Name="Services">
             <EntityTypeMapping TypeName="RentalCarModel.Service">
               <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Prices" ColumnName="Prices" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Services" ColumnName="Services" />
               </MappingFragment>
@@ -237,8 +262,18 @@
           <EntitySetMapping Name="TypesOfCars">
             <EntityTypeMapping TypeName="RentalCarModel.TypesOfCar">
               <MappingFragment StoreEntitySet="TypesOfCar">
+                <ScalarProperty Name="Prices" ColumnName="Prices" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CarType" ColumnName="CarType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="RentalCarModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

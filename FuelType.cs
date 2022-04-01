@@ -22,6 +22,7 @@ namespace CarRentalApp
     
         public int id { get; set; }
         public string FuelType1 { get; set; }
+        public string Prices { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarRentalTABLE> CarRentalTABLEs { get; set; }

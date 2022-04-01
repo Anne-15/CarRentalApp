@@ -67,7 +67,6 @@ namespace CarRentalApp
             this.customerFirstName.Name = "customerFirstName";
             this.customerFirstName.Size = new System.Drawing.Size(309, 20);
             this.customerFirstName.TabIndex = 1;
-            this.customerFirstName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // customerAge
             // 
@@ -75,7 +74,6 @@ namespace CarRentalApp
             this.customerAge.Name = "customerAge";
             this.customerAge.Size = new System.Drawing.Size(309, 20);
             this.customerAge.TabIndex = 2;
-            this.customerAge.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // validLicence
             // 
@@ -83,7 +81,6 @@ namespace CarRentalApp
             this.validLicence.Name = "validLicence";
             this.validLicence.Size = new System.Drawing.Size(309, 20);
             this.validLicence.TabIndex = 3;
-            this.validLicence.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // numberOfDays
             // 
@@ -91,7 +88,6 @@ namespace CarRentalApp
             this.numberOfDays.Name = "numberOfDays";
             this.numberOfDays.Size = new System.Drawing.Size(309, 20);
             this.numberOfDays.TabIndex = 4;
-            this.numberOfDays.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // customerAddress
             // 
@@ -99,7 +95,6 @@ namespace CarRentalApp
             this.customerAddress.Name = "customerAddress";
             this.customerAddress.Size = new System.Drawing.Size(309, 20);
             this.customerAddress.TabIndex = 5;
-            this.customerAddress.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // customerSurname
             // 
@@ -107,7 +102,6 @@ namespace CarRentalApp
             this.customerSurname.Name = "customerSurname";
             this.customerSurname.Size = new System.Drawing.Size(309, 20);
             this.customerSurname.TabIndex = 6;
-            this.customerSurname.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label2
             // 
@@ -173,44 +167,28 @@ namespace CarRentalApp
             // 
             this.carType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.carType.FormattingEnabled = true;
-            this.carType.Items.AddRange(new object[] {
-            "City Car",
-            "Family Car",
-            "Sport Car",
-            "SUV "});
             this.carType.Location = new System.Drawing.Point(239, 382);
             this.carType.Name = "carType";
             this.carType.Size = new System.Drawing.Size(309, 21);
             this.carType.TabIndex = 13;
-            this.carType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // extraZ
             // 
             this.extraZ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.extraZ.FormattingEnabled = true;
-            this.extraZ.Items.AddRange(new object[] {
-            "Unlimited mileage ",
-            "Breakdown Coverage"});
             this.extraZ.Location = new System.Drawing.Point(239, 475);
             this.extraZ.Name = "extraZ";
             this.extraZ.Size = new System.Drawing.Size(309, 21);
             this.extraZ.TabIndex = 14;
-            this.extraZ.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // fuelType
             // 
             this.fuelType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fuelType.FormattingEnabled = true;
-            this.fuelType.Items.AddRange(new object[] {
-            "Petrol",
-            "Diesel",
-            "Hybrid",
-            "Full Electric"});
             this.fuelType.Location = new System.Drawing.Point(239, 432);
             this.fuelType.Name = "fuelType";
             this.fuelType.Size = new System.Drawing.Size(309, 21);
             this.fuelType.TabIndex = 15;
-            this.fuelType.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label8
             // 

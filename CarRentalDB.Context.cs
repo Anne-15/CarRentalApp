@@ -29,5 +29,6 @@ namespace CarRentalApp
         public virtual DbSet<FuelType> FuelTypes { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<TypesOfCar> TypesOfCars { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

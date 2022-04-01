@@ -16,5 +16,12 @@ namespace CarRentalApp
         {
             InitializeComponent();
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Hide();
+        }
     }
 }

@@ -13,55 +13,11 @@ namespace CarRentalApp
     public partial class Bookings : Form
     {
         private readonly RentalCarEntities rentalCarEntities;
+
         public Bookings()
         {
             InitializeComponent();
             rentalCarEntities = new RentalCarEntities();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,12 +49,12 @@ namespace CarRentalApp
                     rentalRecord.CustomerFirstName = firstName;
                     rentalRecord.CustomerSurname = surName;
                     rentalRecord.CustomerAddress = address;
-                    rentalRecord.CustomerAge = (int)age;
+                    //rentalRecord.CustomerAge = (int)age;
                     rentalRecord.DrivingLicence = drivingLicence;
-                    rentalRecord.NumberOfDays = (int)numberDays;
+                    //rentalRecord.NumberOfDays = (int)numberDays;
                     rentalRecord.CarTypeId = (int)carType.SelectedValue;
                     rentalRecord.FuelTypeId = (int)fuelType.SelectedValue;
-                    rentalRecord.Service = (int)extraZ.SelectedValue;
+                    //rentalRecord.Service = (int)extraZ.SelectedValue;
                     
                     rentalCarEntities.CarRentalTABLEs.Add(rentalRecord);
                     rentalCarEntities.SaveChanges();
@@ -130,7 +86,7 @@ namespace CarRentalApp
         {
             var cars = rentalCarEntities.TypesOfCars.ToList();
             carType.DisplayMember = "CarType";
-            carType.DisplayMember = "Prices";
+            //carType.DisplayMember = "Prices";
             carType.ValueMember = "id";
             carType.DataSource = cars;
 
@@ -142,7 +98,7 @@ namespace CarRentalApp
 
             var service = rentalCarEntities.Services.ToList();
             extraZ.DisplayMember = "Services";
-            extraZ.DisplayMember = "Prices";
+            //extraZ.DisplayMember = "Prices";
             extraZ.ValueMember = "id";
             extraZ.DataSource = service;
         }

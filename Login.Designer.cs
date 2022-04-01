@@ -70,6 +70,7 @@ namespace CarRentalApp
             // 
             this.passwordInput.Location = new System.Drawing.Point(190, 291);
             this.passwordInput.Name = "passwordInput";
+            this.passwordInput.PasswordChar = '*';
             this.passwordInput.Size = new System.Drawing.Size(293, 20);
             this.passwordInput.TabIndex = 3;
             // 

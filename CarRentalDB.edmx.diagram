@@ -12,6 +12,7 @@
         <AssociationConnector Association="RentalCarModel.FK_CarRentalTABLE_FuelTypes" ManuallyRouted="false" />
         <AssociationConnector Association="RentalCarModel.FK_CarRentalTABLE_Services" ManuallyRouted="false" />
         <AssociationConnector Association="RentalCarModel.FK_CarRentalTABLE_TypesOfCar" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RentalCarModel.user" Width="1.5" PointX="3.375" PointY="3.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
